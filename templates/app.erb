@@ -27,7 +27,9 @@ pythonpath = <%= @pythonpath %>
 <% if @wsgi_file -%>
 wsgi-file = <%= @wsgi_file %>
 <% end -%>
-touch-reload = <%= @touch_reload_file %>
+<% if @touch-reload -%>
+touch-reload = <%= @touch_reload %>
+<% end -%>
 <% if @virtualenv -%>
 virtualenv = <%= @virtualenv %>
 <% end -%>

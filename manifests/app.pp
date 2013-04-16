@@ -33,11 +33,6 @@ define uwsgi::app (
     content => template('uwsgi/app.erb'),
   }
 
-  $touch_reload_file = $touch_reload ? {
-    undef => $wsgi_file,
-    default => $touch_reload,
-  }
-
   $enable_ensure = $ensure ? {
     'present' => $enabled ? {
         true => 'link',
