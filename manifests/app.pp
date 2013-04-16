@@ -11,6 +11,7 @@ define uwsgi::app (
   $env            = undef,
   $pythonpath     = undef,
   $wsgi_file      = undef,
+  $touch_reload   = undef,
   $virtualenv     = undef,
   $chdir          = undef,
 ) {
@@ -30,6 +31,11 @@ define uwsgi::app (
     group   => 'root',
     mode    => '0644',
     content => template('uwsgi/app.erb'),
+  }
+
+  $touch_reload_file = $touch_reload ? {
+    undef => $wsgi_file,
+    default => $touch_reload,
   }
 
   $enable_ensure = $ensure ? {
