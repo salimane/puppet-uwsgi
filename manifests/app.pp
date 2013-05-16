@@ -14,6 +14,8 @@ define uwsgi::app (
   $touch_reload   = undef,
   $virtualenv     = undef,
   $chdir          = undef,
+  $uid            = undef,
+  $gid            = undef,
 ) {
 
   validate_re($ensure, '^(present|absent)$',
