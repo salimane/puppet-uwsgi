@@ -1,5 +1,5 @@
 class uwsgi::install {
-  package { $uwsgi::package:
-    ensure => $uwsgi::package_version,
+  package { $uwsgi::params::package:
+    ensure => $uwsgi::ensure,
   }
 }

@@ -1,8 +1,8 @@
 class uwsgi (
-  $package         = $uwsgi::params::package,
-  $package_version = 'installed'
-) inherits uwsgi::params {
+  $ensure = 'installed'
+) {
 
+  include uwsgi::params
   include uwsgi::install
   include uwsgi::service
 }
